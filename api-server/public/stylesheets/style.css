@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    padding: 100px;
+    font: 20px Helvetica, sans-serif;
+    color: #333;
+}
+
+div {
+    display: block;
+    text-align: center;
+    width: 650px;
+    margin: 0 auto;
+}
