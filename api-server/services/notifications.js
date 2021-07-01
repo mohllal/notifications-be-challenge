@@ -9,7 +9,6 @@ import {
   PERSONALIZED_NOTIFICATION_TYPE,
   GROUP_NOTIFICATION_TYPE,
   CREATED_NOTIFICATION_STATUS,
-  ENQUEUED_NOTIFICATION_STATUS,
 } from '../common/constants';
 
 import GroupPushNotificationQueue from '../queues/groupPushNotificationQueue';
@@ -188,13 +187,6 @@ export default class NotificationsService {
         default:
           break;
       }
-
-      await NotificationsModel.updateOne({ _id: notificationId }, {
-        $set: {
-          'status.current': ENQUEUED_NOTIFICATION_STATUS,
-          'status.enqueuedAt': new Date(),
-        },
-      });
     } catch (error) {
       logger.error(`Error in enqueue personalized notification service: ${error.message}`);
       throw error;
@@ -224,13 +216,6 @@ export default class NotificationsService {
         default:
           break;
       }
-
-      await NotificationsModel.updateOne({ _id: notificationId }, {
-        $set: {
-          'status.current': ENQUEUED_NOTIFICATION_STATUS,
-          'status.enqueuedAt': new Date(),
-        },
-      });
     } catch (error) {
       logger.error(`Error in enqueue group notification service: ${error.message}`);
       throw error;
