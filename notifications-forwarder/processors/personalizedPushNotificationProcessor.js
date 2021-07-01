@@ -11,7 +11,7 @@ export default async (job) => {
     timestamp,
   } = job;
 
-  logger.info(`A push notification job with ID ${id} is now processing at ${new Date(timestamp).toISOString()}`);
+  logger.info(`A push personalized notification job with ID ${id} is now processing at ${new Date(timestamp).toISOString()}`);
 
   const { message, userDeviceToken } = data;
   await handler.send(message, userDeviceToken);

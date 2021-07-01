@@ -7,6 +7,9 @@ import {
   smsRTPoints,
   smsRTDuration,
 } from '../common/config';
+import Logger from '../lib/winston';
+
+const logger = new Logger(module);
 
 export const scheduler = new QueueScheduler(personalizedSmsNotificationQueueName);
 
@@ -24,6 +27,10 @@ export default (processor) => {
       max: smsRTPoints,
       duration: smsRTDuration * 1000,
     },
+  });
+
+  worker.on('error', (error) => {
+    logger.error(`[${personalizedSmsNotificationQueueName}] worker error: ${error.message}`);
   });
 
   return worker;

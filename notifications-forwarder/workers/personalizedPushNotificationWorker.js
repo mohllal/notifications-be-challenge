@@ -7,6 +7,9 @@ import {
   pushNotificationRTPoints,
   pushNotificationRTDuration,
 } from '../common/config';
+import Logger from '../lib/winston';
+
+const logger = new Logger(module);
 
 export const scheduler = new QueueScheduler(personalizedPushNotificationQueueName);
 
@@ -24,6 +27,10 @@ export default (processor) => {
       max: pushNotificationRTPoints,
       duration: pushNotificationRTDuration * 1000,
     },
+  });
+
+  worker.on('error', (error) => {
+    logger.error(`[${personalizedPushNotificationQueueName}] worker error: ${error.message}`);
   });
 
   return worker;

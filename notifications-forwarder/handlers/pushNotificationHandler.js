@@ -15,7 +15,7 @@ export default class PushNotificationHandler {
   }
 
   async send(message, token) {
-    logger.info(`Sending push notification with provider toggle: ${this.providerToggle} and provider ${this.provider.constructor.name}`);
+    logger.info(`Sending personalized push notification with provider toggle: ${this.providerToggle} and provider ${this.provider.constructor.name}`);
 
     return this.provider.sendNotification(message, token);
   }

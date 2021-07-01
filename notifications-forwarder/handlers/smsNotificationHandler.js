@@ -15,7 +15,7 @@ export default class PushNotificationHandler {
   }
 
   async send(message, phone) {
-    logger.info(`Sending sms with provider toggle: ${this.providerToggle}`);
+    logger.info(`Sending personalized sms with provider toggle: ${this.providerToggle} and provider ${this.provider.constructor.name}`);
 
     return this.provider.sendSms(message, phone);
   }
