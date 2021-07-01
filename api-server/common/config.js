@@ -9,11 +9,30 @@ export const mongodb = {
     process.env.MONGODB_URI
     || 'mongodb://localhost:27017/notification-be',
 };
+export const redis = {
+  host:
+    process.env.REDIS_HOST
+    || 'localhost',
+  post:
+    process.env.REDIS_PORT
+    || '6379',
+};
+export const personalizedPushNotificationQueueName = process.env.PERSONALIZED_PUSH_NOTIFICATION_QUEUE_NAME || 'PERSONALIZED_PUSH_QUEUE';
+export const groupPushNotificationQueueName = process.env.GROUP_PUSH_NOTIFICATION_QUEUE_NAME || 'GROUP_PUSH_QUEUE';
+export const personalizedSmsNotificationQueueName = process.env.PERSONALIZED_SMS_NOTIFICATION_QUEUE_NAME || 'PERSONALIZED_SMS_QUEUE';
+export const groupSmsNotificationQueueName = process.env.PERSONALIZED_PUSH_NOTIFICATION_QUEUE_NAME || 'GROUP_SMS_QUEUE';
 
 const config = {
   environment,
   port,
   mongodb,
+  redis,
+  queues: {
+    personalizedPushNotificationQueueName,
+    groupPushNotificationQueueName,
+    personalizedSmsNotificationQueueName,
+    groupSmsNotificationQueueName,
+  },
 };
 
 export default config;

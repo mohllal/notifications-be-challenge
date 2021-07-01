@@ -1,6 +1,4 @@
-import {
-  ENGLISH_LANGUAGE_ISO_CODE,
-} from '../../common/constants';
+import Randomer from '../utils/randomer';
 import UsersModel from '../../models/users';
 
 class UsersSeeder {
@@ -8,8 +6,8 @@ class UsersSeeder {
     email,
     phone,
     name,
-    language = ENGLISH_LANGUAGE_ISO_CODE,
-    nfTags = [],
+    language = Randomer.getRadomLanguage(),
+    nfTags = [Randomer.getRandomNotificationTag()],
   }) {
     const user = await UsersModel.create({
       email,

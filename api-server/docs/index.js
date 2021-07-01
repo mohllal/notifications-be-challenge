@@ -20,6 +20,10 @@ export default {
       description: 'Everything about the users module',
     },
     {
+      name: 'Notifications',
+      description: 'Everything about the notifications module',
+    },
+    {
       name: 'Healthcheck',
       description: 'Everything about the healthcheck module',
     },

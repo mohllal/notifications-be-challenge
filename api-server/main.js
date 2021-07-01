@@ -12,6 +12,7 @@ import SwaggerDocs from './docs';
 
 import HealthCheckRouter from './routes/healthcheck';
 import UsersRouter from './routes/users';
+import NotificationsRouter from './routes/notifications';
 
 const logger = new Logger(module);
 const app = express();
@@ -32,6 +33,7 @@ app.get('/', (req, res) => res.render('index'));
 
 app.use('/healthcheck', HealthCheckRouter);
 app.use('/users', UsersRouter);
+app.use('/notifications', NotificationsRouter);
 
 app.use(logger.expressWinstonErrorMiddleware);
 app.use(ErrorHandler.handle());
