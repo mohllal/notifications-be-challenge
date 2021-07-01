@@ -20,7 +20,7 @@ export const redis = {
 export const personalizedPushNotificationQueueName = process.env.PERSONALIZED_PUSH_NOTIFICATION_QUEUE_NAME || 'PERSONALIZED_PUSH_QUEUE';
 export const groupPushNotificationQueueName = process.env.GROUP_PUSH_NOTIFICATION_QUEUE_NAME || 'GROUP_PUSH_QUEUE';
 export const personalizedSmsNotificationQueueName = process.env.PERSONALIZED_SMS_NOTIFICATION_QUEUE_NAME || 'PERSONALIZED_SMS_QUEUE';
-export const groupSmsNotificationQueueName = process.env.PERSONALIZED_PUSH_NOTIFICATION_QUEUE_NAME || 'GROUP_SMS_QUEUE';
+export const groupSmsNotificationQueueName = process.env.GROUP_SMS_NOTIFICATION_QUEUE_NAME || 'GROUP_SMS_QUEUE';
 
 const config = {
   environment,

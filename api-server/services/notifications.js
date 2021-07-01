@@ -9,6 +9,7 @@ import {
   PERSONALIZED_NOTIFICATION_TYPE,
   GROUP_NOTIFICATION_TYPE,
   CREATED_NOTIFICATION_STATUS,
+  DIRECT_NOTIFICATION_JOB_TYPE,
 } from '../common/constants';
 
 import GroupPushNotificationQueue from '../queues/groupPushNotificationQueue';
@@ -175,6 +176,7 @@ export default class NotificationsService {
         userId,
         userDeviceToken,
         userPhoneNumber,
+        jobType: DIRECT_NOTIFICATION_JOB_TYPE,
       };
 
       switch (provider) {
