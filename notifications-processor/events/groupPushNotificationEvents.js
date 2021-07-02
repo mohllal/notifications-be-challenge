@@ -12,7 +12,14 @@ import Logger from '../lib/winston';
 
 const logger = new Logger(module);
 
-const queue = new Queue(groupPushNotificationQueueName);
+const queue = new Queue(groupPushNotificationQueueName, {
+  connection: {
+    host: redis.host,
+    port: redis.port,
+    connectTimeout: 30000,
+    disconnectTimeout: 5000,
+  },
+});
 const queueEvents = new QueueEvents(groupPushNotificationQueueName, {
   connection: {
     host: redis.host,

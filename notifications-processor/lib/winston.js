@@ -11,6 +11,7 @@ switch (environment) {
     silent = false;
     break;
   case 'development':
+  case 'compose':
     level = 'debug';
     silent = false;
     break;

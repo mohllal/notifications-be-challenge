@@ -1,14 +1,15 @@
 {
   "name": "notifications-processor",
   "version": "1.0.0",
-  "description": "Notifications forwarder service",
+  "description": "Notifications processor service",
   "main": "main.js",
   "scripts": {
     "transpile": "babel ./ --out-dir dist --ignore node_modules --copy-files",
     "start": "npm run dev",
     "serve": "node ./dist/main",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./main",
-    "prod": "cross-env NODE_ENV=production npm-run-all build serve",
+    "prod": "cross-env NODE_ENV=production node ./dist/main",
+    "compose": "cross-env NODE_ENV=compose node ./dist/main",
     "build": "npm-run-all clean transpile",
     "clean": "rimraf dist",
     "lint": "eslint -c .eslintrc.json --ext .js .",

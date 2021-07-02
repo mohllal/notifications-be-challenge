@@ -9,7 +9,14 @@ import Logger from '../lib/winston';
 
 const logger = new Logger(module);
 
-export const scheduler = new QueueScheduler(groupPushNotificationQueueName);
+export const scheduler = new QueueScheduler(groupPushNotificationQueueName, {
+  connection: {
+    host: redis.host,
+    port: redis.port,
+    connectTimeout: 30000,
+    disconnectTimeout: 5000,
+  },
+});
 
 export default (processor) => {
   const processorFile = path.join(__dirname, processor);

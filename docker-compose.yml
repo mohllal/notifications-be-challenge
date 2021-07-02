@@ -1,0 +1,45 @@
+version: '3.5'
+services:
+  mongo:
+    image: "mongo:4.0"
+    restart: always
+    logging:
+      driver: none
+
+  redis:
+    image: "redis:6.2"
+    restart: always
+    logging:
+      driver: none
+
+  api-server:
+    build: "./api-server"
+    ports:
+     - "3000:3000"
+    command:
+     - "npm"
+     - "run"
+     - "compose"
+    depends_on:
+      - mongo
+      - redis
+
+  notifications-processor:
+    build: "./notifications-processor"
+    command:
+      - "npm"
+      - "run"
+      - "compose"
+    depends_on:
+      - mongo
+      - redis
+ 
+  notifications-forwarder:
+    build: "./notifications-forwarder"
+    command:
+      - "npm"
+      - "run"
+      - "compose"
+    depends_on:
+      - mongo
+      - redis

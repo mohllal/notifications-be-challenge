@@ -38,6 +38,7 @@ ENV PORT=3000
 # copy the build directory and node_modules
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/.env.* ./
 COPY --chown=node:node --from=builder /app/dist ./dist
 
 # change the root user for more security
@@ -45,6 +46,3 @@ USER node
 
 # expose the application port numbner
 EXPOSE $PORT
-
-# run the app
-CMD [ "npm", "run", "serve" ]
