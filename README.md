@@ -1,5 +1,7 @@
 # Notifications BE Challenge
 
+![ci](https://github.com/mohllal/notifications-be-challenge/actions/workflows/main.yml/badge.svg)
+
 We communicate with our customers via different types of notifications (e.g we send promo codes to customers via SMS, send in-ride push notifications like “Your drop-off station is coming”). And each customer receives a notification in their preferred language.
 
 The project is split into three services:
