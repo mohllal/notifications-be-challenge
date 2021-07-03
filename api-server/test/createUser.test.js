@@ -24,7 +24,7 @@ describe('create user', () => {
       .expect(CREATED);
 
     const { _id } = response.body.data;
-    const user = await UsersModel.findOne({ _id });
+    const user = await UsersModel.findOne({ _id }, {}, { lean: true });
 
     expect(user).to.not.be.null;
     expect(user._id).to.equal(_id);

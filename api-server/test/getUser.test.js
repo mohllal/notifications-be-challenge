@@ -15,13 +15,13 @@ describe('get user details', () => {
     await Dropper.dropUsers();
   });
   it('should get user details for an existing id and return 200 status code', async () => {
-    const body = UsersFactory.generate();
+    const data = UsersFactory.generate();
     const user = await UsersModel.create({
-      email: body.email,
-      phone: body.phone,
-      name: body.name,
-      language: body.language,
-      nfTags: body.nfTags,
+      email: data.email,
+      phone: data.phone,
+      name: data.name,
+      language: data.language,
+      nfTags: data.nfTags,
     });
 
     const response = await request(app)
