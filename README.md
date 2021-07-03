@@ -29,7 +29,7 @@ minute are limited.
 - [Notifications Forwarder](https://hub.docker.com/repository/docker/mohllal/nf-be-challenge-notifications-processor)
 - [Notifications Processor](https://hub.docker.com/repository/docker/mohllal/nf-be-challenge-notifications-processor)
 
-## Starting the services as Docker containers
+## Starting The Services Locally as Docker Containers
 
 - Navigate to the repository root directory and run a container for each service, using the command:
 
